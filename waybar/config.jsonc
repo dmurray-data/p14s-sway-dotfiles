@@ -14,7 +14,8 @@
         "network",
         "pulseaudio",
         "battery",
-        "clock"
+        "clock",
+	"custom/power"
     ],
 
     "sway/workspaces": {
@@ -91,5 +92,11 @@
         "calendar": {
             "mode": "month"
      }
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": "Power menu",
+        "on-click": "~/p14s-sway-dotfiles/scripts/powermenu.sh"
 }
 }
