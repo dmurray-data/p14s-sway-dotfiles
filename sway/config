@@ -20,6 +20,9 @@ set $menu wofi --show drun
 
 include /etc/sway/config-vars.d/*
 
+# Kill Waybar
+bindsym $mod+Shift+b exec pkill waybar; waybar &
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -239,3 +242,9 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+# ------------------------------------------------------------
+# Waybar
+# ------------------------------------------------------------
+
+exec waybar
