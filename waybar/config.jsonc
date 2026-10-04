@@ -27,39 +27,65 @@
     },
 
     "cpu": {
-        "format": "CPU {usage}%"
+        "format": "CPU {usage}%",
+	"tooltip": true
     },
 
     "memory": {
-        "format": "RAM {}%"
+        "format": "RAM {percentage}%",
+	"tooltip-format": "{used:0.1f} GiB used"
     },
 
     "network": {
-        "format-wifi": "WiFi {essid} {signalStrength}%",
-        "format-ethernet": "ETH {ipaddr}",
-        "format-disconnected": "Offline",
-        "tooltip": true
+        "format-wifi": "  {essid} {signalStrength}%",
+        "format-ethernet": "󰈀  {ipaddr}",
+        "format-disconnected": "󰖪  Offline",
+    
+        "tooltip-format-wifi": "{essid}\n{ipaddr}\nSignal: {signalStrength}%",
+        "tooltip-format-ethernet": "{ifname}\n{ipaddr}",
+    
+        "on-click": "nm-connection-editor"
     },
 
     "pulseaudio": {
-        "format": "VOL {volume}%",
-        "format-muted": "MUTED",
-        "on-click": "pavucontrol"
+        "format": "  {volume}%",
+        "format-muted": "󰝟  Muted",
+    
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+    
+        "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
     },
 
     "battery": {
         "states": {
             "warning": 30,
             "critical": 15
-        },
-        "format": "BAT {capacity}%",
-        "format-charging": "BAT {capacity}% +",
-        "format-plugged": "BAT {capacity}% AC"
+    },
+
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+
+        "tooltip-format": "{timeTo} remaining"
     },
 
     "clock": {
-        "format": "{:%a %b %d  %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    }
+        "format": "  {:%a %b %d  %H:%M}",
+    
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    
+        "calendar": {
+            "mode": "month"
+     }
 }
-
+}
