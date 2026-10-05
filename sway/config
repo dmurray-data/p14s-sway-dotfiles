@@ -18,6 +18,9 @@ set $term foot
 # Your preferred application launcher
 set $menu wofi --show drun
 
+# Automatically choose horizontal/vertical splits
+exec autotiling
+
 include /etc/sway/config-vars.d/*
 
 # Kill Waybar
@@ -91,9 +94,6 @@ bindsym $mod+Shift+b exec pkill waybar; waybar &
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-#
 
 # ------------------------------------------------------------
 # Power menu
@@ -234,20 +234,20 @@ bindsym $mod+r mode "resize"
 #
 # Status Bar:
 #
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
+# Read `man 5 sway-bar` for more information about this section.?
+#bar {
+#    position top
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+#    # When the status_command prints a new line to stdout, swaybar updates.
+#    # The default just shows the current date and time.
+#    status_command while date +'%Y-%m-%d %X'; do sleep 1; done#
+#
+#    colors {
+#        statusline #ffffff
+#        background #323232
+#        inactive_workspace #32323200 #32323200 #5c5c5c
+#    }
+#}
 
 include /etc/sway/config.d/*
 
